@@ -68,19 +68,13 @@ class PropertyData(BaseModel):
 
 # Load the model and preprocessor when the app starts
 model = joblib.load("pipeline_model.pkl")
-preprocessor = joblib.load("preprocessor.pkl")
 
 @app.post("/predict", summary="Predict Property Valuation", description="Receive property data and return the predicted valuation.")
 def predict_property_value(data: PropertyData, api_key: str = Depends(get_api_key)):
     try:
-        logger.info(f"Received data: {data}")
+        logger.info(f"Received data: {data}")        
         property_df = pd.DataFrame([data.dict()])
-        
-        # Apply the same preprocessing to the incoming data
-        property_preprocessed = preprocessor.transform(property_df)
-        property_preprocessed = pd.DataFrame(property_preprocessed, columns=property_df.columns)
-        
-        prediction = model.predict(property_preprocessed)
+        prediction = model.predict(property_df)
         logger.info(f"Prediction: {prediction[0]}")
         return {"prediction": prediction[0]}
     except Exception as e:

@@ -4,9 +4,13 @@ from src.pipeline.evaluate_model import evaluate_model, print_metrics
 import argparse
 
 def main(train_path: str, test_path: str, categorical_cols: list, target: str, hyperparams: dict):
+    print("Loading data")
     train, test = load_data(train_path, test_path)
+    print("Preprocessing data")
     train, test, train_cols, preprocessor = preprocess_data(train, test, categorical_cols, target)
+    print("Training model")
     pipeline = train_model(train, train_cols, target, preprocessor, hyperparams)
+    print("Evalueting data")
     metrics = evaluate_model(pipeline, test, train_cols, target)
     print_metrics(metrics)
 

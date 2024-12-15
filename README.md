@@ -38,7 +38,7 @@ The solution is scalable and future-proof, allowing seamless integration with da
 ## Project Structure
 
 ```plaintext
-property-friends/
+MachineLearningAPI-RealStatecase/
 ├── src/
 │   ├── api/
 │   │   ├── main.py             # FastAPI entry point
@@ -46,17 +46,14 @@ property-friends/
 │   │   └── logging_config.py   # Logger configuration
 │   ├── pipeline/
 │   │   ├── data_loader.py      # Handles data loading
-│   │   ├── preprocessor.py     # Preprocessing and feature engineering
-│   │   ├── trainer.py          # Model training and saving
-│   │   ├── evaluator.py        # Model evaluation
+│   │   ├── data_preprocessing.py     # Preprocessing and feature engineering
+│   │   ├── train_model.py          # Model training and saving
+│   │   ├── evaluate_model.py        # Model evaluation
 │   │   └── predictor.py        # Model prediction
-│   ├── config/
-│   │   ├── model_config.py     # Configuration for the model and pipeline
-│   │   └── settings.py         # General settings, including placeholders for DB connections
-├── tests/
-│   ├── test_pipeline.py        # Unit tests for the pipeline
-│   ├── test_api.py             # Unit tests for the API
+├── data/
 ├── Dockerfile                  # Docker setup
+├── docker-compose.yml                  # Docker setup
+├── pipeline.py                 # Docker setup
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # Documentation
 └── .env                        # Environment variables for sensitive data
@@ -70,19 +67,25 @@ property-friends/
 
 1. Python 3.9+
 2. Docker
-3. pip (Python package installer)
 
 ### Installation
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Willianpitter/MLRealStateCase.git
+   git clone https://github.com/Willianpitter/MachineLearningAPI-RealStatecase.git
    ```
 
-2. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. **Install Dependencies**
+Ensure you have the necessary dependencies installed:  
+```plaintext
+pip install -r requirements.txt
+
+```
+3. **Run the Pipeline**
+Ensure train.csv and test.csv files are in the data/ directory. Execute the pipeline script to train the model:
+```plaintext
+python pipeline.py --train_path data/train.csv --test_path data/test.csv --learning_rate 0.01 --n_estimators 300 --max_depth 5 --loss absolute_error
+```
 
 3. **Environment Variables**:
    - Create a `.env` file in the root directory with the following content:
@@ -90,34 +93,17 @@ property-friends/
      API_KEY=your_secure_api_key
      ```
 
-4. **Run the API Locally**:
-   ```bash
-   uvicorn src.api.main:app --reload
-   ```
-   Access the API documentation at `http://127.0.0.1:8000/docs`.
-
 ### Running with Docker
 
 1. **Build the Docker Image**:
    ```bash
-   docker build -t property-friends-api .
-   ```
+   docker-compose up --build
 
-2. **Run the Container**:
-   ```bash
-   docker run -p 8000:8000 --env-file .env property-friends-api
    ```
-
 ---
 
 ## API Usage
 
-### Authentication
-
-All API endpoints require an API key. Pass the key in the `Authorization` header as follows:
-```plaintext
-Authorization: Bearer <API_KEY>
-```
 
 ### Endpoints
 
@@ -126,23 +112,38 @@ Authorization: Bearer <API_KEY>
 - **Description**: Predicts property valuation based on input features.
 - **Request Body**:
   ```json
-  {
-    "type": "apartment
+   {
+   "type": "apartment",
+   "sector": "downtown",
+   "net_usable_area": 75.0,
+   "net_area": 90.0,
+   "n_rooms": 3,
+   "n_bathroom": 2,
+   "latitude": -33.4489,
+   "longitude": -70.6693,
+   "price": 300000.0
+   }
 
 
 docker-compose up --build
 docker-compose up
 
-curl -X 'POST' \
-  'http://localhost:8000/predict' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "type": "apartment",
-  "sector": "downtown"
-  # add other property features here
-}'
+**Example**
+   - **Full Request Body**:
+   ```plaintext
 
+      curl -X 'POST'   'http://localhost:8000/predict'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -H 'access_token: my_secret_api_key'   -d '{
+      "type": "apartment",
+      "sector": "downtown",
+      "net_usable_area": 75.0,
+      "net_area": 90.0,
+      "n_rooms": 3,
+      "n_bathroom": 2,
+      "latitude": -33.4489,
+      "longitude": -70.6693,
+      "price": 300000.0
+      }'
+   ```
 Make predictions via the API:
 
 Use curl or the interactive documentation at http://localhost:8000/docs.
