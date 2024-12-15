@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project is a machine learning solution designed to estimate the valuation of residential properties in Chile. The goal is to deliver a production-ready system that includes:
+This project is a machine learning solution designed to estimate the valuation of residential properties. The goal is to deliver a production-ready system that includes:
 
 - A robust, modularized pipeline for training, evaluating, and deploying the model.
 - A REST API to predict property valuations based on input features.
