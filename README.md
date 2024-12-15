@@ -115,8 +115,7 @@ Ensure train.csv and test.csv files are in the data/ directory. Execute the pipe
    "n_rooms": 3,
    "n_bathroom": 2,
    "latitude": -33.4489,
-   "longitude": -70.6693,
-   "price": 300000.0
+   "longitude": -70.6693
    }
 
 **Example**
@@ -131,8 +130,7 @@ Ensure train.csv and test.csv files are in the data/ directory. Execute the pipe
       "n_rooms": 3,
       "n_bathroom": 2,
       "latitude": -33.4489,
-      "longitude": -70.6693,
-      "price": 300000.0
+      "longitude": -70.6693
       }'
    ```
 Make predictions via the API:
