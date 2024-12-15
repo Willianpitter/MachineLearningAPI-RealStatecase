@@ -11,8 +11,6 @@ This project is a machine learning solution designed to estimate the valuation o
 - Logging and basic security for API monitoring and protection.
 - Containerized setup using Docker for easy deployment.
 
-The solution is scalable and future-proof, allowing seamless integration with databases for data ingestion.
-
 ---
 
 ## Features
