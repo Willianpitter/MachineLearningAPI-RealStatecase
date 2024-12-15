@@ -76,27 +76,24 @@ MachineLearningAPI-RealStatecase/
 2. **Install Dependencies**
 Ensure you have the necessary dependencies installed:  
    ```plaintext
-      pip install -r requirements.txt
-   
+   pip install -r requirements.txt
    ```
 3. **Run the Pipeline**
 Ensure train.csv and test.csv files are in the data/ directory. Execute the pipeline script to train the model:
    ```plaintext
-      python pipeline.py --train_path data/train.csv --test_path data/test.csv --learning_rate 0.01 --n_estimators 300 --max_depth 5 --loss absolute_error
+   python pipeline.py --train_path data/train.csv --test_path data/test.csv --learning_rate 0.01 --n_estimators 300 --max_depth 5 --loss absolute_error
    ```
-
 3. **Environment Variables**:
    - Create a `.env` file in the root directory with the following content:
-     ```plaintext
-     API_KEY=your_secure_api_key
-     ```
+   ```plaintext
+   API_KEY=your_secure_api_key
+   ```
 
 ### Running with Docker
 
 1. **Build the Docker Image**:
-      ```bash
-      docker-compose up --build
-
+   ```bash
+   docker-compose up --build 
    ```
 ---
 
@@ -109,7 +106,7 @@ Ensure train.csv and test.csv files are in the data/ directory. Execute the pipe
 
 - **Description**: Predicts property valuation based on input features.
 - **Request Body**:
-  ```json
+   ```json
    {
    "type": "apartment",
    "sector": "downtown",
@@ -122,14 +119,10 @@ Ensure train.csv and test.csv files are in the data/ directory. Execute the pipe
    "price": 300000.0
    }
 
-
-docker-compose up --build
-docker-compose up
-
 **Example**
    - **Full Request Body**:
    ```plaintext
-
+   
       curl -X 'POST'   'http://localhost:8000/predict'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -H 'access_token: my_secret_api_key'   -d '{
       "type": "apartment",
       "sector": "downtown",
