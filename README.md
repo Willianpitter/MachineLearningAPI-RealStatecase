@@ -39,19 +39,19 @@ This project is a machine learning solution designed to estimate the valuation o
 MachineLearningAPI-RealStatecase/
 ├── src/
 │   ├── api/
-│   │   ├── main.py             # FastAPI entry point
-│   │   ├── security.py         # API key implementation
-│   │   └── logging_config.py   # Logger configuration
+│   │   ├── main.py                   # FastAPI entry point
+│   │   ├── security.py               # API key implementation
+│   │   └── logging_config.py         # Logger configuration
 │   ├── pipeline/
-│   │   ├── data_loader.py      # Handles data loading
+│   │   ├── data_loader.py            # Handles data loading
 │   │   ├── data_preprocessing.py     # Preprocessing and feature engineering
-│   │   ├── train_model.py          # Model training and saving
-│   │   ├── evaluate_model.py        # Model evaluation
-│   │   └── predictor.py        # Model prediction
+│   │   ├── train_model.py            # Model training and saving
+│   │   ├── evaluate_model.py         # Model evaluation
+│   │   └── predictor.py              # Model prediction
 ├── data/
 ├── Dockerfile                  # Docker setup
-├── docker-compose.yml                  # Docker setup
-├── pipeline.py                 # Docker setup
+├── docker-compose.yml          # Docker setup
+├── pipeline.py                 # Pipeline
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # Documentation
 └── .env                        # Environment variables for sensitive data
