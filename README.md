@@ -75,15 +75,15 @@ MachineLearningAPI-RealStatecase/
 
 2. **Install Dependencies**
 Ensure you have the necessary dependencies installed:  
-```plaintext
-   pip install -r requirements.txt
-
-```
+   ```plaintext
+      pip install -r requirements.txt
+   
+   ```
 3. **Run the Pipeline**
 Ensure train.csv and test.csv files are in the data/ directory. Execute the pipeline script to train the model:
-```plaintext
-   python pipeline.py --train_path data/train.csv --test_path data/test.csv --learning_rate 0.01 --n_estimators 300 --max_depth 5 --loss absolute_error
-```
+   ```plaintext
+      python pipeline.py --train_path data/train.csv --test_path data/test.csv --learning_rate 0.01 --n_estimators 300 --max_depth 5 --loss absolute_error
+   ```
 
 3. **Environment Variables**:
    - Create a `.env` file in the root directory with the following content:
@@ -94,8 +94,8 @@ Ensure train.csv and test.csv files are in the data/ directory. Execute the pipe
 ### Running with Docker
 
 1. **Build the Docker Image**:
-   ```bash
-   docker-compose up --build
+      ```bash
+      docker-compose up --build
 
    ```
 ---
