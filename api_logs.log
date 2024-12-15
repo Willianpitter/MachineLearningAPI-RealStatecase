@@ -1,0 +1,18 @@
+2024-12-14 16:37:55,776 [INFO] Received data: type='apartment' sector='downtown'
+2024-12-14 16:37:55,855 [INFO] Prediction: 10347.982050703333
+2024-12-14 16:38:01,758 [INFO] Received data: type='apartment' sector='downtown'
+2024-12-14 16:38:01,764 [INFO] Prediction: 10347.982050703333
+2024-12-14 16:38:21,762 [INFO] Received data: type='apartment' sector='downtown'
+2024-12-14 16:38:21,769 [INFO] Prediction: 10347.982050703333
+2024-12-14 16:40:18,352 [INFO] Received data: type='departamento' sector='downtown'
+2024-12-14 16:40:18,365 [INFO] Prediction: 10347.982050703333
+2024-12-14 16:40:36,870 [INFO] Received data: type='casa' sector='downtown'
+2024-12-14 16:40:36,880 [INFO] Prediction: 18500.000000001393
+2024-12-14 16:40:46,050 [INFO] Received data: type='outra_coisa' sector='downtown'
+2024-12-14 16:40:46,060 [INFO] Prediction: 10347.982050703333
+2024-12-14 17:17:10,333 [INFO] Received data: type='apartment' sector='downtown' net_usable_area=75.0 net_area=90.0 n_rooms=3 n_bathroom=2 latitude=-33.4489 longitude=-70.6693 price=300000.0
+2024-12-14 17:17:11,490 [INFO] Prediction: 10347.982050703333
+2024-12-14 17:53:21,123 [INFO] Received data: type='apartment' sector='downtown' net_usable_area=75.0 net_area=90.0 n_rooms=3 n_bathroom=2 latitude=-33.4489 longitude=-70.6693 price=300000.0
+2024-12-14 17:53:21,430 [INFO] Prediction: 10347.982050703333
+2024-12-14 21:03:44,501 [INFO] Received data: type='apartment' sector='downtown' net_usable_area=75.0 net_area=90.0 n_rooms=3 n_bathroom=2 latitude=-33.4489 longitude=-70.6693 price=300000.0
+2024-12-14 21:03:44,523 [INFO] Prediction: 10347.982050703333
